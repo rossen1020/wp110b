@@ -2,8 +2,8 @@ function k(i){
     var a=1,b;
     
     for(b=1;b<=i;b++){
-        i=b*i;
+        a=b*a;
     }
-    return i;
+    return a;
 }
-console.log(k(10));
+console.log("10!=",k(10));
