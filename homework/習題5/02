@@ -1,0 +1,9 @@
+function k(i){
+    var a=1,b;
+    
+    for(b=1;b<=i;b++){
+        i=b*i;
+    }
+    return i;
+}
+console.log(k(10));
