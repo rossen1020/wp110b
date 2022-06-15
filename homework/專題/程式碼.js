@@ -1,6 +1,8 @@
-const canvas = document.getElementById('game');
-const ctx = canvas.getContext('2d');
+var canvas = document.getElementById('game');
+var Context = canvas.getContext('2d');
 
+
+var snakePart = [];
 class SnakePart{
     constructor(x, y){
         this.x = x;
@@ -8,37 +10,31 @@ class SnakePart{
     }
 }
 
-let speed = 8;
+//遊戲初始設定
+var speed = 8;
+var tileSize = (canvas.width / 20) - 2;//設定活動範圍
+var snakeX = 10, snakeY = 10;
+var long = 0;
+var appleX = 5, appleY = 5;
+var Vx = 0, Vy = 0;//初始速度
+var score = 0;
 
-let tileCount = 20;
-let tileSize = canvas.width / tileCount - 2;
-let headX = 10;
-let headY = 10;
-const snakePart = [];
-let tailLen = 0;
-
-let appleX = 5;
-let appleY = 5;
-
-let xV = 0;
-let yV = 0;
-
-let score = 0;
 
 function startGame() {
     snakePosition();
-    let lose = isOver();
+    var lose = isOver();
     if(lose){
         document.body.addEventListener('keydown', playAgain);
+        clearScreen();
+    		checkColli();
         return;
     }
-    clearScreen();
+		else if(win){
+        return;
+    }
+    
+   // var win = isWin();
 
-    checkColli();
-    let win = isWin();
-    if(win){
-        return;
-    }
     drawApple();
     drawSnake();
     drawScore();
@@ -48,6 +44,12 @@ function startGame() {
     setTimeout(startGame, 1000/speed);
 }
 
+//蛇的移動
+function snakePosition() {
+    snakeX = snakeX +Vx;
+    snakeY = snakeY +Vy;
+}
+
 function setSpeed() {
         if(score == 5){
             speed = 10;
@@ -55,72 +57,72 @@ function setSpeed() {
 }
 
 function isWin() {
-    let win = false;
-    if(score == 25){
+    var win = false;
+    if(score == 10){
         win = true;
     }
     if(win){
-        ctx.fillStyle = "white";
-        ctx.font = "50px Poppins";
-        ctx.fillText("你贏了!", canvas.width/3.3, canvas.height /2)
+        Context.fillStyle = "white";
+        Context.font = "50px Poppins";
+        Context.fillText("你贏了!", canvas.width/3.3, canvas.height /2)
     }
     return win;
 }
 
 function isOver() {
-    let Over = false;
-    if(headX < 0 || headX == 20 || headY < 0 || headY == 20){
+    var Over = false;
+    if(snakeX < 0 || snakeX == 20 || snakeY < 0 || snakeY == 20){
         Over = true;
     }
-    for(let i = 0; i < snakePart.length; i++){
-        if(headX == snakePart[i].x && headY == snakePart[i].y){
+    for(var i = 0; i < snakePart.length; i++){
+        if(snakeX == snakePart[i].x && snakeY == snakePart[i].y){
             Over = true;
         }
     }
     if(Over){
-        ctx.fillStyle = "white";
-        ctx.font = "50px Poppins";
-        ctx.fillText("Game Over!", canvas.width/6.5, canvas.height /2);
-        ctx.font = "40px Poppins";
-        ctx.fillText("再玩一次?", canvas.width/3.5, canvas.height /2 + 50 );
-        ctx.font = "25px Poppins";
-        ctx.fillText("按空白鍵", canvas.width/2.7, canvas.height /2 +100 );
+        Context.fillStyle = "white";
+        Context.font = "50px Poppins";
+        Context.fillText("Game Over!", canvas.width/6.5, canvas.height /2);
+        Context.font = "40px Poppins";
+        Context.fillText("再玩一次?", canvas.width/3.5, canvas.height /2 + 50 );
+        Context.font = "25px Poppins";
+        Context.fillText("按空白鍵", canvas.width/2.7, canvas.height /2 +100 );
     }
     return Over;
 }
-
+/*
 function clearScreen() {
-    ctx.fillStyle= 'black';
-    ctx.fillRect(0, 0, 400, 400);
+    Context.fillStyle= 'black';
+    Context.fillRect(0, 0, 400, 400);
 }
 
 function drawSnake() {
     
-    ctx.fillStyle = "green";
-    for(let i = 0; i< snakePart.length; i++){
-        let part = snakePart[i];
-        ctx.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize);
+    Context.fillStyle = "green";
+    for(var i = 0; i< snakePart.length; i++){
+        var part = snakePart[i];
+        Context.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize);
     }
 
-    snakePart.push( new SnakePart(headX, headY));
+    snakePart.push( new SnakePart(snakeX, snakeY));
     if(snakePart.length > tailLen){
         snakePart.shift();
     }
 
-    ctx.fillStyle = 'orange';
-    ctx.fillRect(headX * tileCount, headY *tileCount, tileSize, tileSize);
+    Context.fillStyle = 'orange';
+    Contextx.fillRect(snakeX * tileCount, snakeY *tileCount, tileSize, tileSize);
 
 }
 
 function drawApple() {
-    ctx.fillStyle = "red";
-    ctx.fillRect(appleX * tileCount, appleY * tileCount, tileSize, tileSize);
+    Context.fillStyle = "red";
+    Context.fillRect(appleX * tileCount, appleY * tileCount, tileSize, tileSize);
 }
 
 function drawScore() {
-    ctx.fillStyle = "white";
-    ctx.font = "10px Poppins";
-    ctx.fillText("Score: " + score, canvas.width-50, 10);
+    Context.fillStyle = "white";
+    Context.font = "10px Poppins";
+    Context.fillText("Score: " + score, canvas.width-50, 10);
 }
 
 function checkColli() {
@@ -133,12 +135,9 @@ function checkColli() {
             speed ++;
         }
     }
-}
+}*/
 
-function snakePosition() {
-    headX = headX + xV;
-    headY = headY + yV;
-}
+
 
 document.body.addEventListener('keydown', keyDown);
 
@@ -183,5 +182,3 @@ function playAgain(event) {
 }
 
 startGame();
-© 2022 GitHub, Inc.
-Terms
