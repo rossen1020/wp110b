@@ -1,107 +1,44 @@
 <!DOCTYPE html>
 <html>
-        <head>
-                <style>
+    <head>
+        <style>
+        table, th, td {
+          border: 1px solid black;
+           border-style:ridge;
+          border-radius: 3px;
+        }
+        img{
+        width:30%;
+        border-radius: 10px;
+        }
+        </style>
+    </head>
+    <body>
+        <h3>我的個人首頁</h3>
+        <br>
+        <p>
+        名字:賴映羽<br>
+        生日:10/20<br>
+        興趣:繪畫, 烹飪<br>
+        血型:O<br>
+        </p>
+        <p>我的偶像:</p>
+        <img src="https://pbs.twimg.com/media/ExHsB6XW8AMvtUO?format=jpg&name=4096x4096"  alt="">
 
-                    table {
-                      border-collapse: collapse;
-                      width: 100%;
-                    }
+        <hr>
+        <br>
+        <p>學歷:</p>
 
-                    th, td {
-                      border-bottom: 1px solid #ddd;
-                      text-align: left;
-                      padding: 8px;
-                    }
+        <table style="width:50%">
+        <th>國小</th>
+        <th>國中</th>
+        <th>高中</th>
 
-                    tr:nth-child(even){background-color: HoneyDew}
+        <tr>
+        <td>彰化華龍</td>
+        <td>桃園會稽</td>
+        <td>桃園陽明</td>
+        </table>
 
-                    th {
-                      background-color: CadetBlue;
-                      color: white;
-                    }
-                    .img{
-                        width:30%;
-                        border-radius: 10px;
-                    }
-                    .one{
-                      border-style:ridge;
-                      border: 2px solid gray;
-                      border-radius: 15px;
-                      padding: 5px;
-                      background-color:white;
-                      opacity: 0.8;
-                      text-align: center;
-                    }
-                    .two{
-                        background-color:white;
-                        margin: auto;
-                        width: 400px;
-                        height:300px;
-                        border-radius: 30px;
-                        opacity: 0.8;
-                    }
-                    .three{
-                        padding:15px;
-                        text-align: center;
-                        list-style-type: circle;
-                    }
-                    .four{
-                         margin-right: 150px;
-                         margin-left: 150px;
-                    }
-
-                    body
-                    {
-                    background-image: url("https://thumb.photo-ac.com/64/646e0faf0e250fb5df8eadb8aa0ac5cf_t.jpeg");
-                    background-repeat: no-repeat;
-                    background-attachment: fixed;
-                    background-attachment: fixed;
-                    background-size: cover;
-
-                    }
-                </style>
-        </head>
-
-        <body>
-
-                <h2 class="one">我的個人首頁</h3>
-                <br>
-
-                <div class="two">
-                    <div class="three">
-                        <p>
-                        名字:賴映羽<br>
-                        生日:10/20<br>
-                        興趣:繪畫, 烹飪<br>
-                        血型:O<br>
-                        <br>
-                        </p>
-                        <p>我的偶像:Gawr Gura</p>
-                        <a href="https://www.youtube.com/channel/UCoSrY_IQQVpmIRZ9Xf-y93g"><img class="img" src="https://yt3.ggpht.com/uMUat6yJL2_Sk6Wg2-yn0fSIqUr_D6aKVNVoWbgeZ8N-edT5QJAusk4PI8nmPgT_DxFDTyl8=s900-c-k-c0x00ffffff-no-rj" alt="Gawr Gurag.首頁網址" >
-                        </a>
-                    </div>
-                </div>
-
-                <hr>
-                <br>
-
-                <div  class="four">
-                    <div>
-                        <p class="one">學歷:</p>
-
-                        <table style="width:100%">
-                            <th>國小</th>
-                            <th>國中</th>
-                            <th>高中</th>
-
-                            <tr>
-                            <td>彰化華龍</td>
-                            <td>桃園會稽</td>
-                            <td>桃園陽明</td>
-                        </table>
-                    </div>
-                </div>
-
-        </body>
+    </body>
 </html>
