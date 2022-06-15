@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        table, th, td {
+          border: 1px solid black;
+           border-style:ridge;
+          border-radius: 3px;
+        }
+        img{
+        width:30%;
+        border-radius: 10px;
+        }
+        </style>
+    </head>
+    <body>
+        <h3>我的個人首頁</h3>
+        <br>
+        <p>
+        名字:賴映羽<br>
+        生日:10/20<br>
+        興趣:繪畫, 烹飪<br>
+        血型:O<br>
+        </p>
+        <p>我的偶像:</p>
+        <img src="https://pbs.twimg.com/media/ExHsB6XW8AMvtUO?format=jpg&name=4096x4096"  alt="">
+
+        <hr>
+        <br>
+        <p>學歷:</p>
+
+        <table style="width:50%">
+        <th>國小</th>
+        <th>國中</th>
+        <th>高中</th>
+
+        <tr>
+        <td>彰化華龍</td>
+        <td>桃園會稽</td>
+        <td>桃園陽明</td>
+        </table>
+
+    </body>
+</html>
