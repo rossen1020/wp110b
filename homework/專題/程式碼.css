@@ -5,8 +5,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image:url("https://img1.dowebok.com/3128.png")
+}
+.one{
+
+          border-radius: 15px;
+          padding: 5px;
+          background-color:PaleVioletRed;
+          opacity: 0.7;
+          text-align: center;
 }
 
 canvas{
     box-shadow: black 10px 10px 50px;
 }
+
