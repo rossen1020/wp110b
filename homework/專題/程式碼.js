@@ -67,7 +67,7 @@ function isWin() {
 
 //輸的條件
 function isOver() {
-  let Over = false;
+  var Over = false;
   if (X < 0 || X == 20 || Y < 0 || Y == 20) {
     Over = true;
     
