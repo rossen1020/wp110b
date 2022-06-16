@@ -39,11 +39,11 @@ function startGame() {
 
 //調整速度
 function Speed() {
-  if (score == 3) {
-    speed = 13;
+  if (score == 4) {
+    speed = 11;
   }
-  if (score >= 4) {
-    speed +2;
+  if (score >= 5) {
+    speed ++;
   }
 }
 
